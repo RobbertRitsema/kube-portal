@@ -1,0 +1,39 @@
+package templates
+
+import "robbert/kube-portal/templates/layout"
+
+
+type Link struct {
+    Label string
+    Image string
+	Url string
+}
+
+type DashboardViewModel struct {
+	Links []Link
+}
+
+templ fancyBlock(link Link) {
+    <a class="link-card" href={ templ.SafeURL(link.Url) }>
+        <i class={ link.Image }></i>
+        <span class="link-card-label">{ link.Label }</span>
+    </a>
+}
+
+templ plainBlock(link Link) {
+    <a class="link-card link-card--plain" href={ templ.SafeURL(link.Url) }>{ link.Url }</a>
+}
+
+templ Home(viewModel DashboardViewModel) {
+	@layout.Dashboard("Home") {
+        <div class="link-grid">
+            for _, v := range viewModel.Links {
+                if v.Label != "" || v.Image != "" {
+                    @fancyBlock(v)
+                } else {
+                    @plainBlock(v)
+                }
+            }
+        </div>
+	}
+}

@@ -1,0 +1,88 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #1a1a1a;
+  color: #ccc;
+  font-family: monospace;
+}
+
+header {
+  padding: 1.25rem 2.5rem;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+header h1 {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+main {
+  padding: 2rem 4rem;
+  max-width: 1100px;
+}
+
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  background: #242424;
+  border: 1px solid #333;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ccc;
+  transition: border-color 0.1s, background 0.1s, color 0.1s;
+}
+
+.link-card:hover {
+  background: #2c2c2c;
+  border-color: #484848;
+  color: #fff;
+}
+
+.link-card i {
+  font-size: 2rem;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.link-card:hover i {
+  color: #fff;
+}
+
+.link-card:hover span {
+  color: #fff;
+}
+
+
+.link-card-label {
+  font-size: 0.82rem;
+  color: #888;
+  letter-spacing: 0.03em;
+    gap: 1rem;
+}
+
+/* plain: url-only card */
+.link-card--plain {
+  font-size: 0.78rem;
+  color: #5a9fd4;
+  word-break: break-all;
+  text-align: center;
+  padding: 1rem;
+}
+
+.link-card--plain:hover {
+  color: #fff;
+  border-color: #444;
+}
